@@ -19,12 +19,16 @@ $__ = function (selector) {
 $.fn = $__.prototype;
 
 $.fn.on = function (event_name, callback) {
+
     this.el[0].addEventListener(event_name, callback);
     return this;
 };
 
 $.toArray = function (nodeList) {
-    return [].slice.call(nodeList);
+    if(nodeList instanceof NodeList|| nodeList instanceof Array){
+        return [].slice.call(nodeList);
+    }
+    return [nodeList];
 };
 
 $.fn.val = function () {
@@ -36,10 +40,29 @@ $.fn.val = function () {
     }
 };
 
+//ищет только по класснейму, а не селектору
+$.fn.parent = function (className) {
+    var el = this.el[0];
+    var found = false;
+    while (el.parentNode) {
+        el = el.parentNode;
+        if (el.className == className) {
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        return $(el);
+    }else {
+        return $();
+    }
+};
+
 $.fn.find = function (selector) {
     var result = $();
     this.el.forEach(function (el) {
-        result.el=result.el.concat($.toArray(el.querySelectorAll(selector)));
+        result.el = result.el.concat($.toArray(el.querySelectorAll(selector)));
     });
     return result;
 };
@@ -50,7 +73,7 @@ $.fn.attr = function (key, value) {
             el.setAttribute(key, value);
         })
     } else {
-        return el.getAttribute(key);
+        return this.el[0].getAttribute(key);
     }
     return this;
 };

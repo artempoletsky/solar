@@ -1,0 +1,32 @@
+.chart_label
+{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.chart_inputs {
+    margin-bottom: 15px;
+}
+
+.chart_view{
+    border: 1px solid #8f8f8f;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 20px 0;
+    background: #ccc;
+    position: relative;
+}
+
+.page{
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.chart_remove {
+    font-weight: bold;
+    font-style: normal;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
