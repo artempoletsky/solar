@@ -7,10 +7,29 @@
     <script type="text/javascript" src="src/index.js"></script>
 </head>
 <body>
-<form action="#" class="add_chart_form">
-    <label class="add_chart_label">Код акции:</label>
-    <input type="text" id="add_chart_input" value="YHOO"/>
-    <input type="button" id="add_chart_button" value="Добавить график">
-</form>
+<div class="page">
+    <form action="#" class="add_chart_form">
+        <label class="add_chart_label">Код акции:</label>
+        <input type="text" id="add_chart_input" value="YHOO"/>
+        <input type="button" id="add_chart_button" value="Добавить график">
+    </form>
+    <div class="chart_views">
+        <div class="chart_view">
+            <i class="chart_remove">×</i>
+            <label class="chart_label">Период:</label>
+            <div class="chart_inputs">
+                <input type="number" class="chart_time_value" value="1"/>
+                <select class="chart_time_select">
+                    <option value="d">День</option>
+                    <option value="m">Месяц</option>
+                    <option value="y">Год</option>
+                </select>
+            </div>
+            <div class="chart_image_wrapper">
+                <img class="chart_image" src=""/>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
